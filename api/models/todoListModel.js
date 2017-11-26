@@ -4,10 +4,13 @@ var Schema = mongoose.Schema;
 
 
 var TaskSchema = new Schema({
-  name: {
-    type: String,
-    required: 'Kindly enter the name of the task'
-  },
+  
+    nombre: 'String',
+  apellido: 'String',
+  user: 'String',
+  passWord: 'String',
+  email:'String',
+  tipo: 'String',
   Created_date: {
     type: Date,
     default: Date.now
