@@ -54,3 +54,26 @@ exports.delete_a_task = function(req, res) {
     res.json({ message: 'Task successfully deleted' });
   });
 };
+
+
+exports.logeon = function(req, res) {
+
+ Task.findOne({email: req.params.email, passWord: req.params.password}, function(err, user){
+        if(err) {
+            console.log(err);
+        }
+        else if(user){
+            //res.redirect('/MainPage');
+            res.json(user);
+
+            console.log('!!!!!!!Nice!!!!!!!!!!!!!!!!!!!!!!');
+        }
+        else {
+          res.json(false);
+            console.log('------------------Invalid');
+        }
+    });
+
+};
+
+
