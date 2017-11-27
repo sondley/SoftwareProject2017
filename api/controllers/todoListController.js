@@ -66,7 +66,7 @@ exports.logeon = function(req, res) {
             //res.redirect('/MainPage');
             res.json(user);
 
-            console.log('!!!!!!!Nice!!!!!!!!!!!!!!!!!!!!!!');
+            //console.log('!!!!!!!Nice!!!!!!!!!!!!!!!!!!!!!!');
         }
         else {
           res.json(false);
