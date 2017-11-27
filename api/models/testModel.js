@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 
 var TestSchema = new Schema({
- nombre : 'string'
+ nombre : 'String'
 
 });
 
