@@ -11,7 +11,6 @@ var ProductSchema = new Schema({
   price: 'String',
   weight:'String',
   currency:"String",
-  quantity:"String",
   height:'String',
   measure_weight: 'String',
   measure_height:'String',

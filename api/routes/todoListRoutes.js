@@ -15,5 +15,6 @@ module.exports = function(app) {
     .delete(todoList.delete_a_task);
 
 
-    
+    app.route('/logon/:email/:password')
+    .get(todoList.logeon);
 };

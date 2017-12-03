@@ -15,5 +15,9 @@ module.exports = function(app) {
     .delete(todoClient.delete_a_client);
 
 
+    app.route('/login/:email/:phone')
+    .get(todoClient.logear);
+
+
     
 };
