@@ -23,10 +23,12 @@
   },
   "homepage": "git+https://github.com/generalgmt/RESTfulAPITutorial#readme",
   "devDependencies": {
+    "node-quickbooks": "^2.0.20",
     "nodemon": "^1.12.1"
   },
   "dependencies": {
     "express": "^4.16.2",
-    "mongoose": "^4.13.1"
+    "mongoose": "^4.13.1",
+    "node-quickbooks": "^2.0.20"
   }
 }
