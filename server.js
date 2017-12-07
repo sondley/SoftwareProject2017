@@ -44,8 +44,8 @@ mongoose.connect(connectMongoOnline);
 
 // INSERT YOUR CONSUMER_KEY AND CONSUMER_SECRET HERE
 
-var consumerKey = 'Q00p7b4XygCDcAqKq8TO3b7ojQeQ6tbVH3l8ESstLsMwCsp5I6';
-var consumerSecret = 'FvgQlSsleZJvuGjl3Z6a3Ks25tRSF5FJ9POIiLMV';
+var consumerKey = 'Q0haK1pjmVaPoNptTODmaArkqN26cGSAJQF67NqpITZv7wtpdH';
+    var consumerSecret = 'yYhzcVSkovgfnyduq1Jp5nEUHtIzovHGpHqKuZ6f';
 
 app.get('/', function (req, res) {
   res.redirect('/start');
