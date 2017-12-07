@@ -7,6 +7,7 @@ var express = require('express'),
     Product = require('./api/models/productsModel'), //created model loading here
     // CustomerField = require('./api/models/customerFieldModel'), //created model loading here
     Client = require('./api/models/clientModel'),
+    Truck = require('./api/models/truckModel'),
     bodyParser = require('body-parser');
 var connectMongoOnline = 'mongodb://leyloo:Sondley2318@ds259245.mlab.com:59245/sondley';
 
@@ -117,12 +118,14 @@ app.get('/callback', function (req, res) {
     var route3 = require('./api/routes/clientRoutes'); //importing route
     var route4 = require('./api/routes/customerFieldRoutes'); //importing route
     var route5 = require('./api/routes/quickBooksRoutes');
+    var route6 = require('./api/routes/truckRoutes');
 
     routes(app); //register the route
 
     route2(app);
     route3(app);
     route4(app);
+    route6(app);
     route5(app, qbo);
   });
 
