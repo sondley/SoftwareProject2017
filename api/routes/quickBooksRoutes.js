@@ -5,7 +5,7 @@ var CustomerField = require('../models/customerFieldModel');
 module.exports = function(app,qbo) {
 
 
-  
+
 
     var QuickBooks = require('node-quickbooks');
 
