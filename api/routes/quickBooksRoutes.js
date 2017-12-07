@@ -2,31 +2,21 @@
 
 var CustomerField = require('../models/customerFieldModel');
 
-module.exports = function(app) {
+module.exports = function(app,qbo) {
 
 
-    var consumerKey = 'Q0fbxxNxJ3MepVtWAlUJhXpvyXRdIixlmBIDD0NK5LY3gABn7p';
-    var consumerSecret = 'EgdIldZVMJ9ghwMkzW9WudDUFmYuZuce1o3RFlAL';
-    var accessToken_access_token = 'eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..oultqxCkesUtRVYDtMmzhQ.-OOmHTRNm4xWeN5jTSb7H4TGvww0dMNlx9iBIpY4QQ4eezSum4TOVEs8wL_QUb-fsWuYpW_OzxZ_FOnmINm-Mo8B_fsxxAgqynl8_PTuRu2phxQb7Hdm2qsUUMmVdtxOGlh_s5IBWLMQOnT5OPeI3vwcnl6hF_1N7VQdUfnnxuMeSTBbNoHEk9nWUEMj7tFZNpLFOMDjURaANYM8_qOaUCjYYeXQLRsHC_1QKVN-qXRoPr5JUmvD7r4quveVDoPUJbXMglTrYchxwWLZjVLm7aTvfYZScN2S5o_kpv-sRDK_YWaJiP8Xs1eZbiBy4g5NfmlZBJyfqUPsv-Ly931NWtL3hj4CCO9XN6QdrGLRGEoX5mcmaaAuSoQNxODimTkHQkYIaBvglSay3dILe3vXHHSphaYhOG2bV7OFToHD9rgaI0Fd6eizGBYKROKxvUt906uNaVvqMKFoFYy-Ii9iyBNCSw73UaB6JuO0K5sVnyznNbYfeOSujokj6KLLaO5M9dQAdYaBiNS997v9HtwbzsZMiHBo8bigUs54jweR4adMIW8JwuKAUPK62YjqSpwD7amYkE9s5qdmze_nGb4_Sa_Yx9iYNGS_YbS5zbWp8yRsNcOYLS-vDGcDaUz-HoZFw33DAM7-dXN6FgZ28kQa0NCof5HwS87kSjSOP8uM1wO_IzC-aTI1qW1RwkBRNIu6.Re1JYv2RqYTF1myUj9RePA';
-    var req_query_realmId = '123145897081394';
-    var accessToken_refresh_token = 'Q011521068300YEtGgV8NBoH2yjMBbQb9oSMYDn2wQUZfWV8dN';
+    var consumerKey = 'Q0haK1pjmVaPoNptTODmaArkqN26cGSAJQF67NqpITZv7wtpdH';
+    var consumerSecret = 'yYhzcVSkovgfnyduq1Jp5nEUHtIzovHGpHqKuZ6f';
+    var accessToken_access_token = 'eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..ysQ4LcFLxGFZ0MzbO0WX7A.0aUs8SgUMlZi3HIa-9X-2zsjbjVJmTzZXTkMJYahghSbm8_adS_r0FO8f671bgTsCCCqhBCvFPE_EDHr9KV89r7xh0eKUSvrnAnhNRJRWf36CFC8RTfo1TlROCJ_o11-6LKq-6bJxMX6XdmUxQWBdMSQnZFlgr6bHUcoXLl-z6AGmPex0zkJWjsi8rqtmlBPxyOaLA67Kv7GUR4gyl4kxXzD20ipuvkDxsZQgwHiNvlr0dlPvCn1joyUj9fpetGcp1x1bAWtPWn7wKwln06IMnzQOwFNxvd4vlTDNfx2s9a5XPKz4VOGoTToiUN54l7aR5dAntdU9HoSh6BBCk8b6HRpHe4IR6-P9eqUkmguhL9bmEFUpew_KYGYsMk97QLnqkPe9BPi1Qp4igj1tTPVrd_RyrYkiGkA3eaBhpLakxoYlwM0hMGJpj_pI54GLUOCPUx5nuj5cfhKWG6q6vUuNoAncWVcQhXlXK-Ry0mFsFFPl6VLGst_NkBHWVW3YXK-vAwK1fgQtVH0xGipuJZRGaLhtyjDrqb87aJ-J284auZVu3-pRYEcmLOovWDK_2lIqjE-gsKQk3IPRcGp0uANHMlOOMxOLORQHSBTMYkan2vLUgYzvHYfRx7u1lZMQGqfG5e7wkDfRCRWIDbY3X-DMbDSvOQnHE7ju7sQQbPDK7WMgx9iqN9EvGjU2dCvIIKi.WbIidOGz3h_yqtMpCLa0jQ';
+    var req_query_realmId = '123145918278089';
+    var accessToken_refresh_token = 'Q011521380033e90PNOxk8bcSyUHiHLxqgu3CnYlLIBCqHWKJg';
 
     var QuickBooks = require('node-quickbooks');
 
 
     app.get('/customers/:id', (req, res) => {
 
-        var qbo = new QuickBooks(consumerKey,
-            consumerSecret,
-            accessToken_access_token, /* oAuth access token */
-            false, /* no token secret for oAuth 2.0 */
-            req_query_realmId,
-            true, /* use a sandbox account */
-            true, /* turn debugging on */
-            4, /* minor version */
-            '2.0', /* oauth version */
-            accessToken_refresh_token /* refresh token */ );
-
+        
 
         qbo.getCustomer([
             req.params.id
@@ -56,17 +46,7 @@ module.exports = function(app) {
 
     app.get('/customers', (req, res) => {
 
-        var qbo = new QuickBooks(consumerKey,
-            consumerSecret,
-            accessToken_access_token, /* oAuth access token */
-            false, /* no token secret for oAuth 2.0 */
-            req_query_realmId,
-            true, /* use a sandbox account */
-            true, /* turn debugging on */
-            4, /* minor version */
-            '2.0', /* oauth version */
-            accessToken_refresh_token /* refresh token */ );
-
+        
 
         // qbo.getCustomer([{}
         // ], function (e, customers) {
@@ -83,17 +63,7 @@ module.exports = function(app) {
 
     app.get('/employees', (req, res) => {
 
-        var qbo = new QuickBooks(consumerKey,
-            consumerSecret,
-            accessToken_access_token, /* oAuth access token */
-            false, /* no token secret for oAuth 2.0 */
-            req_query_realmId,
-            true, /* use a sandbox account */
-            true, /* turn debugging on */
-            4, /* minor version */
-            '2.0', /* oauth version */
-            accessToken_refresh_token /* refresh token */ );
-
+        
         qbo.findEmployees({
             fetchAll: true
         }, function(e, employee) {
@@ -104,22 +74,12 @@ module.exports = function(app) {
 
     app.get('/employees/:id', (req, res) => {
 
-        var qbo = new QuickBooks(consumerKey,
-            consumerSecret,
-            accessToken_access_token, /* oAuth access token */
-            false, /* no token secret for oAuth 2.0 */
-            req_query_realmId,
-            true, /* use a sandbox account */
-            true, /* turn debugging on */
-            4, /* minor version */
-            '2.0', /* oauth version */
-            accessToken_refresh_token /* refresh token */ );
-
+        
 
         qbo.getEmployee([
             req.params.id
         ], (e, employee) => {
-            if(employee) {
+            if (employee) {
                 CustomerField.find({
                     userId: employee.Id
                 }, (err, user) => {
@@ -148,17 +108,7 @@ module.exports = function(app) {
 
     app.get('/items', (req, res) => {
 
-        var qbo = new QuickBooks(consumerKey,
-            consumerSecret,
-            accessToken_access_token, /* oAuth access token */
-            false, /* no token secret for oAuth 2.0 */
-            req_query_realmId,
-            true, /* use a sandbox account */
-            true, /* turn debugging on */
-            4, /* minor version */
-            '2.0', /* oauth version */
-            accessToken_refresh_token /* refresh token */ );
-
+        
         qbo.findItems({
             fetchAll: true
         }, function(e, items) {
@@ -169,17 +119,7 @@ module.exports = function(app) {
 
     app.get('/items/:id', (req, res) => {
 
-        var qbo = new QuickBooks(consumerKey,
-            consumerSecret,
-            accessToken_access_token, /* oAuth access token */
-            false, /* no token secret for oAuth 2.0 */
-            req_query_realmId,
-            true, /* use a sandbox account */
-            true, /* turn debugging on */
-            4, /* minor version */
-            '2.0', /* oauth version */
-            accessToken_refresh_token /* refresh token */ );
-
+        
 
         qbo.getItem([
             req.params.id
@@ -212,17 +152,7 @@ module.exports = function(app) {
 
     app.get('/invoices', (req, res) => {
 
-        var qbo = new QuickBooks(consumerKey,
-            consumerSecret,
-            accessToken_access_token, /* oAuth access token */
-            false, /* no token secret for oAuth 2.0 */
-            req_query_realmId,
-            true, /* use a sandbox account */
-            true, /* turn debugging on */
-            4, /* minor version */
-            '2.0', /* oauth version */
-            accessToken_refresh_token /* refresh token */ );
-
+        
         qbo.findInvoices({
             fetchAll: true
         }, function(e, invoices) {
@@ -233,17 +163,7 @@ module.exports = function(app) {
 
     app.get('/invoices/:id', (req, res) => {
 
-        var qbo = new QuickBooks(consumerKey,
-            consumerSecret,
-            accessToken_access_token, /* oAuth access token */
-            false, /* no token secret for oAuth 2.0 */
-            req_query_realmId,
-            true, /* use a sandbox account */
-            true, /* turn debugging on */
-            4, /* minor version */
-            '2.0', /* oauth version */
-            accessToken_refresh_token /* refresh token */ );
-
+        
 
         qbo.getInvoice([
             req.params.id
@@ -275,17 +195,7 @@ module.exports = function(app) {
 
     app.get('/sales', (req, res) => {
 
-        var qbo = new QuickBooks(consumerKey,
-            consumerSecret,
-            accessToken_access_token, /* oAuth access token */
-            false, /* no token secret for oAuth 2.0 */
-            req_query_realmId,
-            true, /* use a sandbox account */
-            true, /* turn debugging on */
-            4, /* minor version */
-            '2.0', /* oauth version */
-            accessToken_refresh_token /* refresh token */ );
-
+        
         qbo.findSalesReceipts({
             fetchAll: true
         }, function(e, sales) {
@@ -296,17 +206,7 @@ module.exports = function(app) {
 
     app.get('/sales/:id', (req, res) => {
 
-        var qbo = new QuickBooks(consumerKey,
-            consumerSecret,
-            accessToken_access_token, /* oAuth access token */
-            false, /* no token secret for oAuth 2.0 */
-            req_query_realmId,
-            true, /* use a sandbox account */
-            true, /* turn debugging on */
-            4, /* minor version */
-            '2.0', /* oauth version */
-            accessToken_refresh_token /* refresh token */ );
-
+        
 
         qbo.getSalesReceipt([
             req.params.id
@@ -338,17 +238,7 @@ module.exports = function(app) {
 
     app.post('/sales', (req, res) => {
 
-        var qbo = new QuickBooks(consumerKey,
-            consumerSecret,
-            accessToken_access_token, /* oAuth access token */
-            false, /* no token secret for oAuth 2.0 */
-            req_query_realmId,
-            true, /* use a sandbox account */
-            true, /* turn debugging on */
-            4, /* minor version */
-            '2.0', /* oauth version */
-            accessToken_refresh_token /* refresh token */ );
-
+        
         qbo.createSalesReceipt(req.body, function(err, sale) {
             if (err) console.log(err)
             else res.json(sale)
