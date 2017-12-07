@@ -7,7 +7,6 @@ module.exports = function(app,qbo) {
 
 
 
-    var QuickBooks = require('node-quickbooks');
 
 
     app.get('/customers/:id', (req, res) => {
