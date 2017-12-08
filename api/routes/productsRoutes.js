@@ -13,7 +13,5 @@ module.exports = function(app) {
     .get(todoProduct.read_a_product)
     .put(todoProduct.update_a_product)
     .delete(todoProduct.delete_a_product);
-
-
     
 };

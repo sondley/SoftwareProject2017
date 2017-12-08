@@ -14,7 +14,5 @@ module.exports = function(app) {
     .put(todoCustomerFields.update_a_customerField)
     .delete(todoCustomerFields.delete_a_customerField);
 
-
-
     
 };

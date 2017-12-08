@@ -21,6 +21,9 @@ var QuickBooks = require('node-quickbooks');
 var Tokens = require('csrf');
 var csrf = new Tokens();
 
+var Mroutes = require('./routeJs/imagefile');
+app.use('/', Mroutes);
+
 QuickBooks.setOauthVersion('2.0');
 
 // Generic Express config
@@ -41,7 +44,36 @@ mongoose.connect(connectMongoOnline);
 //mongoose.connect('mongodb://localhost/Tododb');
 
 
+//Routes image
 
+    app.get('/images', function(req, res) {
+//calling the function from index.js class using routes object..
+Mroutes.getImages(function(err, genres) {
+if (err) {
+throw err;
+ 
+}
+res.json(genres);
+ 
+});
+});
+
+
+
+    // To get the single image/File using id from the MongoDB
+app.get('/images/:id', function(req, res) {
+ 
+//calling the function from index.js class using routes object..
+Mroutes.getImageById(req.params.id, function(err, genres) {
+if (err) {
+throw err;
+}
+//res.download(genres.path);
+res.send(genres.path)
+});
+});
+
+/////////////////
 
 // INSERT YOUR CONSUMER_KEY AND CONSUMER_SECRET HERE
 
